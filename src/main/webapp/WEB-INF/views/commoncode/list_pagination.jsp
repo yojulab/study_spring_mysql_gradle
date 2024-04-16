@@ -1,4 +1,4 @@
-<%@ page import="java.util.HashMap, java.util.ArrayList" %>
+<%@ page import="java.util.HashMap, java.util.ArrayList, com.example.co_templates.utils.Paginations" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -36,7 +36,7 @@
         </nav>
 
         <!-- Main Content -->
-        <form action="/commonCode/list" method="get">
+        <form action="/commonCode/list_pagination" method="get">
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-8">
@@ -92,7 +92,11 @@
                 </div>
             </div>
                 <!-- Pagination with buttons and query parameters -->
+                <%
+                    Paginations paginations = (Paginations) result.get("paginations");
+                %>
                 <nav aria-label="Page navigation">
+                    <div><%= paginations.getTotalCount() %></div>
                     <ul class="pagination justify-content-center">
                         <li class="page-item"><button class="page-link" type="submit" name="currentPage"
                                 value="Previous">Previous</button></li>
