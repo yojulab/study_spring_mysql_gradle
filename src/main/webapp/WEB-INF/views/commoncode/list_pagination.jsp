@@ -96,17 +96,28 @@
                     Paginations paginations = (Paginations) result.get("paginations");
                 %>
                 <nav aria-label="Page navigation">
-                    <div><%= paginations.getTotalCount() %></div>
+                    <div>Total Count : <%= paginations.getTotalCount() %></div>
                     <ul class="pagination justify-content-center">
                         <li class="page-item"><button class="page-link" type="submit" name="currentPage"
                                 value="Previous">Previous</button></li>
-                        <li class="page-item"><button class="page-link" type="submit" name="currentPage" value="1">1</button>
+                        <%
+                            for(int i=paginations.getBlockStart(); i <= paginations.getBlockEnd(); i++){
+                        %>
+                        <li class="page-item">
+                            <button class="page-link" type="submit" name="currentPage" value="<%= i %>"><%= i %></button>
                         </li>
-                        <li class="page-item"><button class="page-link" type="submit" name="currentPage" value="2">2</button>
+                        <%
+                            }
+                        %>
+
+                        <!-- <li class="page-item">
+                            <button class="page-link" type="submit" name="currentPage" value="2">2</button>
                         </li>
-                        <li class="page-item"><button class="page-link" type="submit" name="currentPage" value="3">3</button>
-                        </li>
-                        <li class="page-item"><button class="page-link" type="submit" name="currentPage"
+                        <li class="page-item">
+                            <button class="page-link" type="submit" name="currentPage" value="3">3</button>
+                        </li> -->
+                        <li class="page-item">
+                            <button class="page-link" type="submit" name="currentPage"
                                 value="Next">Next</button>
                         </li>
                     </ul>
