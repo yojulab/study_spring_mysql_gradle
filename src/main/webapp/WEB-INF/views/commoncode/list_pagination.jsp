@@ -54,6 +54,7 @@
                             </select>                            
                             <input type="text" class="form-control" name="search" value="<%= search %>" placeholder="Search..." id="keydownEnter">
                             <button class="btn btn-primary">Go</button>
+                            <button class="btn btn-danger">Delete</button>
                         </div>
                 </div>
                 <div class="col-12">
